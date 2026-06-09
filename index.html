@@ -7,7 +7,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="container"></main>
+    <main class="container">
+      <h1>Codewars Leaderboard</h1>
+      <div class="user-input">
+        <label for="input-username">Enter Usernames:</label>
+        <input
+          class="input"
+          id="input-username"
+          type="text"
+          placeholder="(e.g. CodeYourFuture,40thieves, Ahmad Roman Sanaye)"
+        />
+        <p id="error-msg"></p>
+        <button type="button" id="load-btn">Load user</button>
+      </div>
+
+      <br />
+      <div class="dropdown">
+        <select id="select-user">
+          <option value="" disabled selected>Choose a language</option>
+        </select>
+      </div>
+      <br />
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Clan</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <button type="reset" id="reset-btn">Reset</button>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
