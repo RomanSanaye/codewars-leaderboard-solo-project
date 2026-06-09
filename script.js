@@ -1,7 +1,3 @@
-// import functions from logic.js;
-// ===============================
-const { getLanguages, sortUsersByScore } = require("./logic");
-
 // touch HTML elements;
 // ====================
 const userNameInput = document.getElementById("input-username");
@@ -52,8 +48,7 @@ function renderDropdown(languages) {
 
   languages.forEach((lang) => {
     if (lang !== "overall") {
-      selectUser.innerHTML += `
-            <option value="${lang}">${lang}</option>`;
+      selectUser.innerHTML += `<option value="${lang}">${lang}</option>`;
     }
   });
 }
@@ -76,9 +71,48 @@ function renderTable(language) {
   });
 }
 
+// function that extracts unique language based on users;
+// =======================================
+function getLanguages(users) {
+  const languages = ["overall"];
+
+  users.forEach((user) => {
+    const langs = user.ranks.languages;
+
+    for (let lang in langs) {
+      if (!languages.includes(lang)) {
+        languages.push(lang);
+      }
+    }
+  });
+
+  return languages;
+}
+
+// function that sorts users by scores;
+// =====================
+function sortUsersByScore(users, language) {
+  return users
+    .map((user) => {
+      const rank =
+        language === "overall"
+          ? user.ranks.overall
+          : user.ranks.languages?.[language];
+
+      return {
+        username: user.username,
+        clan: user.clan || "No clan",
+        score: rank ? rank.score : 0
+      };
+    })
+    .filter((user) => user.score > 0)
+    .sort((a, b) => b.score - a.score);
+}
+
 // load button event;
 // ==================
 loadBtn.addEventListener("click", async () => {
+  errorMessage.style.display = "none";
   const usernames = userNameInput.value
     .split(",")
     .map((u) => u.trim())
@@ -93,10 +127,19 @@ loadBtn.addEventListener("click", async () => {
   const result = await fetchMultipleUsersData(usernames);
 
   validUsers = result.valid;
+  if (validUsers.length === 0) {
+    dropdown.style.display = "none";
+    leaderBoard.innerHTML = "";
+    errorMessage.style.display = "block";
+    errorMessage.textContent = "No valid users found!";
+    return;
+  }
 
   if (result.invalid.length > 0) {
     errorMessage.style.display = "block";
-    errorMessage.textContent = `Invalid users: ${result.invalid.join(", ")}`;
+    errorMessage.textContent = `Invalid user(s): ${result.invalid.join(", ")}`;
+  } else {
+    errorMessage.style.display = "none";
   }
 
   // build languages
@@ -110,7 +153,6 @@ loadBtn.addEventListener("click", async () => {
   renderTable("overall");
 
   userNameInput.value = "";
-  //errorMessage.style.display = "none";
 });
 
 // dropdown change;
@@ -127,7 +169,3 @@ resetBtn.addEventListener("click", () => {
   leaderBoard.innerHTML = "";
   errorMessage.style.display = "none";
 });
-
-// export functions for testing;
-// =============================
-module.exports = getLanguages;
