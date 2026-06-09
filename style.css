@@ -1,126 +1,200 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
 body {
-  background-color: rgb(133, 125, 176);
+  background-color: #4b4a6a;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
-  color: #fff;
+  padding: 16px;
+  color: #ffffff;
+  line-height: 1.5;
 }
 
-/* main container */
+/* =========================
+   MAIN CONTAINER
+========================= */
+
 .container {
   width: 100%;
-  max-width: 789px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
+/* =========================
+   TITLE
+========================= */
+
 .container h1 {
   text-align: center;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
-  font-size: 40px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  font-size: 32px;
 }
 
-/* input section */
+/* =========================
+   INPUT SECTION
+========================= */
+
 .user-input {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
 }
-.user-input label {
-  color: #2d2d2d;
-  font-weight: 600;
-}
 
-.input {
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
+.user-input label {
+  color: #ffffff;
+  font-weight: 600;
   font-size: 14px;
 }
 
-/* error message */
+.input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
 #error-msg {
   display: none;
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
-  letter-spacing: 1px;
+  color: #ffdddd;
 }
 
-/* button */
+/* =========================
+   LOAD BUTTON
+========================= */
+
 #load-btn {
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  background-color: #2d2d2d;
-  color: white;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  font-size: 14px;
   transition: 0.2s;
 }
 
 #load-btn:hover {
-  background-color: #444;
+  background-color: #333333;
 }
 
-/* dropdown */
+/* =========================
+   DROPDOWN
+========================= */
+
 .dropdown {
   margin-bottom: 20px;
   display: none;
 }
 
 select {
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   border: none;
   width: 100%;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
-/* table styling */
+/* =========================
+   TABLE
+========================= */
+
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  color: black;
+  background: #ffffff;
+  color: #000000;
   border-radius: 8px;
   overflow: hidden;
+  font-size: 14px;
 }
 
-/* table header */
+/* header */
 .table thead {
-  background-color: #2d2d2d;
-  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #1f1f1f;
+  color: #ffffff;
 }
 
+/* cells */
 .table th,
 .table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  padding: 12px;
+
+  border-bottom: 1px solid #e0e0e0;
+  word-break: break-word;
 }
 
-/* row hover effect */
+/* hover */
 .table tbody tr:hover {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
 }
 
-/* highlight top user (you will use this later in JS) */
+/* =========================
+   TOP USER HIGHLIGHT
+========================= */
+
 .top-user {
-  background-color: gold !important;
+  background-color: #ffd700 !important;
   font-weight: bold;
 }
 
-/* reset button */
+/* =========================
+   RESET BUTTON
+========================= */
+
 #reset-btn {
   width: 100%;
-  padding: 10px;
-  background-color: brown;
-  color: whitesmoke;
+  padding: 12px;
+  background-color: #8b0000;
+  color: #ffffff;
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
 }
+
 #reset-btn:hover {
-  background: darkred;
+  background-color: #a30000;
   font-weight: bold;
+}
+
+/* =========================
+   MOBILE FRIENDLY BEHAVIOR (NO MEDIA QUERY)
+========================= */
+
+/* allows content to shrink naturally */
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* improves spacing on small screens */
+.container {
+  padding: 10px;
+}
+
+/* input/button full width consistency */
+.input,
+#load-btn,
+#reset-btn,
+select {
+  width: 100%;
 }

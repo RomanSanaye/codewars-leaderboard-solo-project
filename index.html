@@ -17,14 +17,14 @@
           type="text"
           placeholder="(e.g. CodeYourFuture,40thieves, Ahmad Roman Sanaye)"
         />
-        <p id="error-msg"></p>
+        <p id="error-msg" role="alert" aria-live="polite"></p>
         <button type="button" id="load-btn">Load user</button>
       </div>
 
       <br />
       <div class="dropdown">
         <select id="select-user">
-          <option value="" disabled selected>Choose a language</option>
+          <option value="overall" selected>Overall</option>
         </select>
       </div>
       <br />
@@ -38,7 +38,7 @@
         </thead>
         <tbody id="table-body"></tbody>
       </table>
-      <button type="reset" id="reset-btn">Reset</button>
+      <button type="button" id="reset-btn">Reset</button>
     </main>
     <script type="module" src="script.js"></script>
   </body>
