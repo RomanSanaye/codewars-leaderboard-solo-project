@@ -1,0 +1,23 @@
+{
+  "name": "codewars-leaderboard",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanSanaye/codewars-leaderboard-solo-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomanSanaye/codewars-leaderboard-solo-project/issues"
+  },
+  "homepage": "https://github.com/RomanSanaye/codewars-leaderboard-solo-project#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
