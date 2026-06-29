@@ -96,15 +96,20 @@ body {
 .dropdown {
   justify-content: space-between;
   margin-bottom: 20px;
+  background: rgb(125, 86, 162);
   display: none;
+  border-radius: 6px;
+  padding: 4px;
 }
 .dropdown label {
-  background-color: #2b2b2b;
   padding: 10px;
   border-radius: 6px;
   align-content: center;
-  width: 45%;
+  width: 48%;
   text-align: center;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 select {
@@ -125,7 +130,6 @@ select {
   border-collapse: collapse;
   background: white;
   color: black;
-  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -133,6 +137,7 @@ select {
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
+  border-radius: 6px;
 }
 
 /* table header */
@@ -184,4 +189,21 @@ select {
 #reset-btn:hover {
   background-color: rgb(68, 142, 171);
   font-weight: bold;
+}
+/* =========================
+   RESPONSIVE: STACK LABEL + SELECT ON MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .dropdown {
+    display: flex; /* ensure flex is active */
+    flex-direction: column; /* stack vertically */
+    gap: 10px;
+  }
+
+  .dropdown label,
+  .dropdown select {
+    width: 100%; /* full width on mobile */
+    text-align: left;
+  }
 }
