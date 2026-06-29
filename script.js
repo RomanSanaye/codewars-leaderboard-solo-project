@@ -3,7 +3,7 @@
 const userNameInput = document.getElementById("input-username");
 const loadBtn = document.getElementById("load-btn");
 const dropdown = document.querySelector(".dropdown");
-const selectUser = document.getElementById("select-user");
+const selectLanguage = document.getElementById("select-language");
 const leaderBoard = document.getElementById("table-body");
 const resetBtn = document.getElementById("reset-btn");
 const errorMessage = document.getElementById("error-msg");
@@ -44,11 +44,12 @@ async function fetchMultipleUsersData(usernames) {
 
 // fill the Dropdown;
 function renderDropdown(languages) {
-  selectUser.innerHTML = '<option value="overall" selected>Overall</option>';
+  selectLanguage.innerHTML =
+    '<option value="overall" selected>Overall</option>';
 
   languages.forEach((lang) => {
     if (lang !== "overall") {
-      selectUser.innerHTML += `<option value="${lang}">${lang}</option>`;
+      selectLanguage.innerHTML += `<option value="${lang}">${lang}</option>`;
     }
   });
 }
@@ -146,7 +147,7 @@ loadBtn.addEventListener("click", async () => {
   const languages = getLanguages(validUsers);
 
   // build dropdown
-  dropdown.style.display = "block";
+  dropdown.style.display = "flex";
   renderDropdown(languages);
 
   // show default table
@@ -157,7 +158,7 @@ loadBtn.addEventListener("click", async () => {
 
 // dropdown change;
 // ================
-selectUser.addEventListener("change", (e) => {
+selectLanguage.addEventListener("change", (e) => {
   renderTable(e.target.value);
 });
 
