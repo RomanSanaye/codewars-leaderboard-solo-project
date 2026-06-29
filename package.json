@@ -1,6 +1,7 @@
 {
   "name": "codewars-leaderboard",
   "version": "1.0.0",
+  "type": "module",
   "main": "script.js",
   "scripts": {
     "test": "jest"

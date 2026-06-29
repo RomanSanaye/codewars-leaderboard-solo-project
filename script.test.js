@@ -1,6 +1,6 @@
 // import functions for testing;
 // =============================
-const { getLanguages, sortUsersByScore } = require("./logic");
+import { getLanguages, sortUsersByScore } from "./logic.js";
 
 // write the test here;
 // ====================

@@ -1,11 +1,8 @@
-// function that extracts unique language based on users;
-// =======================================
-function getLanguages(users) {
+export function getLanguages(users) {
   const languages = ["overall"];
 
   users.forEach((user) => {
     const langs = user.ranks.languages;
-
     for (let lang in langs) {
       if (!languages.includes(lang)) {
         languages.push(lang);
@@ -16,9 +13,7 @@ function getLanguages(users) {
   return languages;
 }
 
-// function that sorts users by scores;
-// =====================
-function sortUsersByScore(users, language) {
+export function sortUsersByScore(users, language) {
   return users
     .map((user) => {
       const rank =
@@ -35,10 +30,3 @@ function sortUsersByScore(users, language) {
     .filter((user) => user.score > 0)
     .sort((a, b) => b.score - a.score);
 }
-
-// export the functions;
-// =====================
-module.exports = {
-  getLanguages,
-  sortUsersByScore
-};
